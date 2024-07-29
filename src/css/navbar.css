@@ -1,0 +1,106 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #ffd7e1;
+    font-size: x-large;
+    padding: 10px 30px;
+}
+
+.logo {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    /* Adjust the size as needed */
+    margin-right: 10px;
+}
+
+.nav ul {
+    color: white;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav ul li {
+   
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #000;
+    /* Adjust the color as needed */
+}
+
+.nav ul li .dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+}
+
+.nav ul li:hover .dropdown {
+    display: block;
+}
+
+.language-notifications {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notifications {
+    position: relative;
+    cursor: pointer;
+}
+
+.notifications::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.language {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons .login,
+.auth-buttons .get-started {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-buttons .login {
+    background-color: transparent;
+    color: #000;
+    /* Adjust the color as needed */
+}
+
+.auth-buttons .get-started {
+    background-color: #007bff;
+    /* Adjust the background color as needed */
+    color: white;
+}

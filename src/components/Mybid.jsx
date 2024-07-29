@@ -1,0 +1,49 @@
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+const MyProductBlock = () => {
+    const [product,setProduct]=useState([])
+    
+    useEffect(function() {
+    const config={headers:{'key-token':localStorage.getItem('key-token')}}
+    axios.post('http://localhost:4000/MyProduct/',{},config)
+    .then((data)=>{
+      console.log(data)
+      setProduct([...data.data.data.reverse()])
+      console.log(data.data.data)
+    }).catch((err)=>{console.log(err)})
+     },[])
+    console.log(product)
+
+
+
+  
+
+  return (
+    <div className='container'>
+    {product.map((i)=>{
+    return (<div className="container mt-4" style={{cursor:'pointer'}} onClick={()=>{window.location.replace('/bid/'+i.pid)}}>
+      <div className="card">
+        <div className="card-body d-flex align-items-center">
+          <img
+            src={i.src}
+            alt="Product"
+            className="img-fluid"
+            style={{ maxWidth: '100px', maxHeight: '100px' }}
+          />
+          <div className="flex-grow-1 ml-3">
+            <h5 className="card-title mb-0">{i.title}</h5>
+          </div>
+          <button  className="btn btn-outline-success  btn-lg">WON at : {i.currentprice} </button>
+        
+        </div>
+      </div>
+    </div>)})}
+    </div>
+
+  );
+};
+
+export default MyProductBlock;
